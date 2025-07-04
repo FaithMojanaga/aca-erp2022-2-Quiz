@@ -1,10 +1,10 @@
 import React from "react";
-import Quiz from "./components/Quiz";
+import Quiz from "./components/Quiz";  
 
 function App() {
   return (
-    <div className="App">
-      <h1>ACA Git & GitHub Quiz</h1>
+    <div>
+      <h1>Welcome to the ACA Quiz</h1>
       <Quiz />
     </div>
   );
