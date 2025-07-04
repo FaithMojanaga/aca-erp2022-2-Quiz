@@ -25,38 +25,87 @@ const Register: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: 320, margin: "auto", padding: 20 }}>
-      <h2>Register</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        required
-        style={{ width: "100%", padding: 8, marginBottom: 12 }}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        required
-        style={{ width: "100%", padding: 8, marginBottom: 12 }}
-      />
-      <input
-        type="password"
-        placeholder="Confirm Password"
-        value={confirmPassword}
-        onChange={e => setConfirmPassword(e.target.value)}
-        required
-        style={{ width: "100%", padding: 8, marginBottom: 12 }}
-      />
-      <button type="submit" style={{ width: "100%", padding: 10 }}>Register</button>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-    </form>
+    <>
+      <style>{`
+        .register-form {
+          max-width: 320px;
+          margin: 3rem auto;
+          padding: 20px;
+          background: #fff;
+          border-radius: 12px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+          font-family: 'Segoe UI', sans-serif;
+        }
+
+        .register-title {
+          text-align: center;
+          margin-bottom: 1rem;
+          color: #1d1d5c;
+        }
+
+        .register-input {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 14px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          font-size: 1rem;
+        }
+
+        .register-button {
+          width: 100%;
+          padding: 10px;
+          background-color: #1d1d5c;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          font-size: 1rem;
+          cursor: pointer;
+        }
+
+        .register-button:hover {
+          background-color: #1d1d5c;
+        }
+
+        .register-error {
+          margin-top: 10px;
+          color: red;
+          text-align: center;
+          font-size: 0.9rem;
+        }
+      `}</style>
+
+      <form className="register-form" onSubmit={handleSubmit}>
+        <h2 className="register-title">Register</h2>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+          className="register-input"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          required
+          className="register-input"
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={e => setConfirmPassword(e.target.value)}
+          required
+          className="register-input"
+        />
+        <button type="submit" className="register-button">Register</button>
+        {error && <p className="register-error">{error}</p>}
+      </form>
+    </>
   );
 };
 
 export default Register;
-
-export {};  
